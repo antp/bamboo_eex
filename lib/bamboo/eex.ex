@@ -10,20 +10,20 @@ defmodule Bamboo.EEx do
       Render an EEx template and set the body as HTML on the email.
       """
       @spec render_to_html(Bamboo.Email.t, String.t, map | list) :: Bamboo.Email.t
-      def render_to_html(email, template, assigns \\ %{}) do
+      def render_to_html(email, template, assigns \\ %{}, opts \\ @opts) do
         email
         |> base_email(template, assigns)
-        |> render_to(:html_body, @opts)
+        |> render_to(:html_body, opts)
       end
 
       @doc """
       Render an EEx template and set the body as text on the email
       """
       @spec render_to_text(Bamboo.Email.t, String.t, map | list) :: Bamboo.Email.t
-      def render_to_text(email, template, assigns \\ %{}) do
+      def render_to_text(email, template, assigns \\ %{}, opts \\ @opts) do
         email
         |> base_email(template, assigns)
-        |> render_to(:text_body, @opts)
+        |> render_to(:text_body, opts)
       end
 
       #
