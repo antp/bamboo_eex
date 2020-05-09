@@ -9,7 +9,7 @@ defmodule Bamboo.EEx do
       @doc """
       Render an EEx template and set the body as HTML on the email.
       """
-      @spec render_to_html(Bamboo.Email.t, String.t, map | list) :: Bamboo.Email.t
+      @spec render_to_html(Bamboo.Email.t, String.t, map | list, Keyword.t) :: Bamboo.Email.t
       def render_to_html(email, template, assigns \\ %{}, opts \\ @opts) do
         email
         |> base_email(template, assigns)
@@ -19,7 +19,7 @@ defmodule Bamboo.EEx do
       @doc """
       Render an EEx template and set the body as text on the email
       """
-      @spec render_to_text(Bamboo.Email.t, String.t, map | list) :: Bamboo.Email.t
+      @spec render_to_text(Bamboo.Email.t, String.t, map | list, Keyword.t) :: Bamboo.Email.t
       def render_to_text(email, template, assigns \\ %{}, opts \\ @opts) do
         email
         |> base_email(template, assigns)
